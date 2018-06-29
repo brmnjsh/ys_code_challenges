@@ -12,7 +12,7 @@ $distances = [
   {'Erkol-Bokos' => 134}
 ]
 
-def get_distance(start, dest)
+def run(start, dest)
   # get all the path nodes that have the start item in them
   starts = $distances.map do |d|
     d if d.keys.first.include? start
@@ -31,7 +31,7 @@ def get_distance(start, dest)
     res = p if res == nil || p[1] < res[1]
   end
 
-  puts res[0] + ', ' + res[1].to_s + ' miles'
+  [res[0], res[1].to_s + ' miles']
 end
 
 def get_shortest_path(start, point, dest, total, path)
@@ -82,10 +82,10 @@ def destination_exists?(start, dest)
   true if start.keys.first.include? dest
 end
 
-get_distance('Vathlo', 'Xan')
-get_distance('Kryptonopolis', 'Kandor')
-get_distance('Bokos', 'Argo')
-get_distance('Vathlo', 'Kryptonopolis')
-get_distance('Kandor', 'Xan')
-get_distance('Vathlo', 'Argo')
-get_distance('Argo', 'Vathlo')
+run('Vathlo', 'Xan')
+run('Kryptonopolis', 'Kandor')
+run('Bokos', 'Argo')
+run('Vathlo', 'Kryptonopolis')
+run('Kandor', 'Xan')
+run('Vathlo', 'Argo')
+run('Argo', 'Vathlo')
